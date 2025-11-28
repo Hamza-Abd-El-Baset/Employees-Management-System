@@ -1,4 +1,4 @@
-namespace EmployeesManagement.WebApp
+namespace EmployeesManagement.WebApp.PL
 {
     public class Program
     {
@@ -21,8 +21,6 @@ namespace EmployeesManagement.WebApp
 
             app.UseHttpsRedirection();
             app.UseRouting();
-
-            app.UseAuthorization();
 
             app.MapStaticAssets();
             app.MapControllerRoute(

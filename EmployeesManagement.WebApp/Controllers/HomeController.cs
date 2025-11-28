@@ -1,8 +1,8 @@
 using System.Diagnostics;
-using EmployeesManagement.WebApp.Models;
+using EmployeesManagement.WebApp.PL.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EmployeesManagement.WebApp.Controllers
+namespace EmployeesManagement.WebApp.PL.Controllers
 {
     public class HomeController : Controller
     {

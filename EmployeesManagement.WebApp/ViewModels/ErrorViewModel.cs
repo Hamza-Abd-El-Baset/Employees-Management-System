@@ -1,4 +1,4 @@
-namespace EmployeesManagement.WebApp.Models
+namespace EmployeesManagement.WebApp.PL.ViewModels
 {
     public class ErrorViewModel
     {
