@@ -1,5 +1,5 @@
 <Solution>
   <Project Path="EmployeesManagement.WebApp.BLL/EmployeesManagement.WebApp.BLL.csproj" Id="c898975a-a513-418b-9973-4cc003e9f987" />
   <Project Path="EmployeesManagement.WebApp.DAL/EmployeesManagement.WebApp.DAL.csproj" Id="98105a0c-ee47-474b-893d-47243250e739" />
-  <Project Path="EmployeesManagement.WebApp/EmployeesManagement.WebApp.PL.csproj" />
+  <Project Path="EmployeesManagement.WebApp.PL/EmployeesManagement.WebApp.PL.csproj" />
 </Solution>

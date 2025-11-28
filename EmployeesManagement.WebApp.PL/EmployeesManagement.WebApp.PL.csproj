@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EmployeesManagement.WebApp.BLL\EmployeesManagement.WebApp.BLL.csproj" />
+  </ItemGroup>
+
 </Project>
