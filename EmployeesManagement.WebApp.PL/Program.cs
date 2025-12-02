@@ -1,3 +1,6 @@
+using EmployeesManagement.WebApp.DAL.Persistence.Data.Contexts;
+using Microsoft.EntityFrameworkCore;
+
 namespace EmployeesManagement.WebApp.PL
 {
     public class Program
@@ -8,6 +11,13 @@ namespace EmployeesManagement.WebApp.PL
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddDbContext<ApplicationDbContext>(optionsBuilder => {
+                //optionsBuilder.UseSqlServer(builder.Configuration.GetSection("ConnectionStrings")["DefaultConnection"]);
+                //});
+                optionsBuilder.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+                });
+
 
             var app = builder.Build();
 

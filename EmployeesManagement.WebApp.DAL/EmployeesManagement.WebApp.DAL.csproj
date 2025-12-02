@@ -7,11 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="Persistence\Data\Contexts\" />
     <Folder Include="Persistence\Data\DataSeeds\" />
-    <Folder Include="Persistence\Data\Configurations\" />
     <Folder Include="Persistence\Repositories\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.0" />
   </ItemGroup>
 
 </Project>
