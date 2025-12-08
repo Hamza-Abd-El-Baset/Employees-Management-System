@@ -1,0 +1,93 @@
+﻿using EmployeesManagement.WebApp.BLL.DTOs;
+using EmployeesManagement.WebApp.DAL.Models.Departments;
+using EmployeesManagement.WebApp.DAL.Persistence.Repositories.Departments;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace EmployeesManagement.WebApp.BLL.Services.Departments
+{
+    public class DepartmentService : IDepartmentService
+    {
+        private readonly IDepartmentRepository _departmentRepository;
+        public DepartmentService(IDepartmentRepository departmentRepository) {
+            _departmentRepository = departmentRepository;
+        }
+        public IEnumerable<DepartmentToReturnDto> GetAllDepartments()
+        {
+            var departments = _departmentRepository.GetAllAsIQueryable()
+                                                   .Select(d => new DepartmentToReturnDto()
+                                                       {
+                                                       Id = d.Id,
+                                                       Name = d.Name,
+                                                       Code = d.Code,
+                                                       CreationDate = d.CreationDate,
+                                                       })
+                                                   .ToList();
+            return departments;
+
+        }
+
+        public DepartmentDetailsDto? GetDepartmentsById(int id)
+        {
+            var department = _departmentRepository.Get(id);
+
+            if (department is { })
+                return new DepartmentDetailsDto()
+                {
+                    Id = department.Id,
+                    Code = department.Code,
+                    Name = department.Name,
+                    Description = department.Description,
+                    CreationDate = department.CreationDate,
+                    CreatedBy = department.CreatedBy,
+                    CreatedOn = department.CreatedOn,
+                    LastModifiedBy = department.LastModifiedBy,
+                    LastModifiedOn = department.LastModifiedOn,
+                };
+            return null;
+        }
+
+        public int CreateDepartment(CreatedDepartmentDto departmentDto)
+        {
+            var department = new Department()
+            {
+                Code = departmentDto.Code,
+                Name = departmentDto.Name,
+                Description = departmentDto.Description,
+                CreationDate = departmentDto.CreationDate,
+                CreatedBy = 1,
+                LastModifiedBy = 1,
+                //LastModifiedOn = DateTime.Now,
+            };
+
+            return _departmentRepository.Add(department);
+        }
+        public int UpdateDepartment(UpdatedDepartmentDto departmentDto)
+        {
+            var department = new Department()
+            {
+                Id = departmentDto.Id,
+                Code = departmentDto.Code,
+                Name = departmentDto.Name,
+                Description = departmentDto.Description,
+                CreationDate = departmentDto.CreationDate,
+                CreatedBy = 1,
+                LastModifiedBy = 1,
+                //LastModifiedOn = DateTime.Now,
+            };
+
+            return _departmentRepository.Update(department);
+        }
+        public bool DeleteDepartment(int id)
+        {
+            var department = _departmentRepository.Get(id);
+
+            if (department is { })
+                return _departmentRepository.Delete(department) > 0;
+
+            return false;
+        }
+
+    }
+}

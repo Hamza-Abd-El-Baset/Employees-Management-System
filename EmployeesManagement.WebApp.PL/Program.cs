@@ -1,4 +1,5 @@
 using EmployeesManagement.WebApp.DAL.Persistence.Data.Contexts;
+using EmployeesManagement.WebApp.DAL.Persistence.Repositories.Departments;
 using Microsoft.EntityFrameworkCore;
 
 namespace EmployeesManagement.WebApp.PL
@@ -17,6 +18,8 @@ namespace EmployeesManagement.WebApp.PL
                 //});
                 optionsBuilder.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
                 });
+
+            builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
 
 
             var app = builder.Build();
@@ -37,7 +40,7 @@ namespace EmployeesManagement.WebApp.PL
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}")
                 .WithStaticAssets();
-
+            
             app.Run();
         }
     }

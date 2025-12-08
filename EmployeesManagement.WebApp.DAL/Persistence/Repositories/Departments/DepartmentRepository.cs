@@ -24,10 +24,16 @@ namespace EmployeesManagement.WebApp.DAL.Persistence.Repositories.Departments
             return _dbContext.Departments.ToList();
         }
 
+        public IQueryable<Department> GetAllAsIQueryable()
+        {
+            return _dbContext.Departments.AsNoTracking();
+        }
+
         public Department? Get(int id)
         {
             return _dbContext.Find<Department>(id);
         }
+
 
         public int Add(Department entity)
         {
@@ -46,5 +52,6 @@ namespace EmployeesManagement.WebApp.DAL.Persistence.Repositories.Departments
             _dbContext.Update(entity);
             return _dbContext.SaveChanges();
         }
+
     }
 }
