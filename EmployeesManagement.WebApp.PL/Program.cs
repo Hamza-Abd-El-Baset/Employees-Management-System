@@ -1,3 +1,4 @@
+using EmployeesManagement.WebApp.BLL.Services.Departments;
 using EmployeesManagement.WebApp.DAL.Persistence.Data.Contexts;
 using EmployeesManagement.WebApp.DAL.Persistence.Repositories.Departments;
 using Microsoft.EntityFrameworkCore;
@@ -20,7 +21,7 @@ namespace EmployeesManagement.WebApp.PL
                 });
 
             builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
-
+            builder.Services.AddScoped<IDepartmentService, DepartmentService>();
 
             var app = builder.Build();
 

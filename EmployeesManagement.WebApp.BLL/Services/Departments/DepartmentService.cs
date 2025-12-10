@@ -55,7 +55,7 @@ namespace EmployeesManagement.WebApp.BLL.Services.Departments
                 Code = departmentDto.Code,
                 Name = departmentDto.Name,
                 Description = departmentDto.Description,
-                CreationDate = departmentDto.CreationDate,
+                CreationDate = departmentDto.CreationDate ??DateOnly.FromDateTime(DateTime.Now),
                 CreatedBy = 1,
                 LastModifiedBy = 1,
                 //LastModifiedOn = DateTime.Now,

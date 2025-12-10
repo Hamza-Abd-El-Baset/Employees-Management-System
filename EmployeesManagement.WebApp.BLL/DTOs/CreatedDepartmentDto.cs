@@ -9,11 +9,11 @@ namespace EmployeesManagement.WebApp.BLL.DTOs
     {
         public string Name { get; set; } = null!;
 
-        [Required(ErrorMessage = "Department code is required.")]
+        [Required(ErrorMessage = "Code is required.")]
         public string Code { get; set; } = null!;
         public string? Description { get; set; }
 
         [Display(Name = "Date of Creation")]
-        public DateOnly CreationDate { get; set; }
+        public DateOnly? CreationDate { get; set; }
     }
 }
