@@ -1,6 +1,6 @@
 using System.Diagnostics;
 using EmployeesManagement.WebApp.DAL.Persistence.Data.Contexts;
-using EmployeesManagement.WebApp.PL.ViewModels;
+using EmployeesManagement.WebApp.PL.ViewModels.Common;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeesManagement.WebApp.PL.Controllers
